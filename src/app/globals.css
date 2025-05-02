@@ -1,9 +1,51 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
+  --background: #eeeeee;
   --foreground: #171717;
 }
+
+.dark {
+  --background: #171717;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.animate-alert{
+  top: -4rem;
+  opacity: 0;
+  animation: alert 1s  ease-in-out;
+}
+
+@keyframes alert{
+  from{
+    top:-4rem;
+    opacity: 0;
+  }
+  to{
+    top: 0rem;
+    opacity: 1;
+  }
+}
+
+.ProseMirror-focused:focus-visible{
+  outline: 0px;
+}
+
+/* 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+/* 
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +54,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
+ */
