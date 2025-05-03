@@ -6,6 +6,7 @@ import { CreateJob } from '@/utils/ValidationSchema';
 import { useState } from 'react';
 
 const JobForm = () => {
+    const Domain = process.env.NEXT_BASE_URL;
     const [title, setTitle] = useState('');
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
@@ -41,7 +42,7 @@ const JobForm = () => {
         }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/jobs', {
+            const response = await fetch(`${Domain}/api/jobs`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -129,7 +130,7 @@ const JobForm = () => {
                     <label className="p-1 font-bold" htmlFor="description">
                         Job Description
                     </label>
-                    <Editor value={description} onChange={setDescription} disabled={loading} />
+                    <Editor value={description} onChange={setDescription}  />
                     {validationErrors.description && (
                         <span className="text-red-500 text-sm">{validationErrors.description}</span>
                     )}
@@ -168,7 +169,7 @@ const JobForm = () => {
                         value={type}
                         onChange={(e) => setType(e.target.value)}
                         disabled={loading}
-                        className="w-1/6 border rounded p-1"
+                        className="lg:w-1/6 border rounded p-1"
                     >
                         <option value="">Select type of job</option>
                         <option value="full-time">Full-time</option>
@@ -183,7 +184,7 @@ const JobForm = () => {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="flex justify-center items-center bg-green-500 hover:bg-green-400 mt-4 text-white cursor-pointer rounded-md p-2 text-xl disabled:bg-gray-300 w-1/12"
+                    className="flex justify-center items-center bg-green-500 hover:bg-green-400 mt-4 text-white cursor-pointer rounded-md p-2 text-xl disabled:bg-gray-300 lg:w-1/12"
                 >
                     {loading ? <Spinner /> : 'Add Job'}
                 </button>

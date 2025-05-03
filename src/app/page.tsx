@@ -4,13 +4,13 @@ import { Jobs } from "@/types/Jobs";
 
 
 export default async function Home() {
-
-
+  const Domain = process.env.NEXT_BASE_URL
   try {
-    const response = await fetch('http://127.0.0.1:8000/api/jobs', {
+    const response = await fetch(`${Domain}/api/jobs`, {
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      cache : 'no-store'
     });
 
     if (!response.ok) {

@@ -3,9 +3,10 @@ import SearchForm from '@/components/SearchJob/SearchForm';
 import { Jobs, SearchJobs } from '@/types/Jobs'
 
 const SearchJob = async ({ searchParams }: SearchJobs) => {
+  const Domain = process.env.NEXT_BASE_URL
   try {
     const query = new URLSearchParams(await searchParams).toString();
-    const response = await fetch(`http://127.0.0.1:8000/api/searchjobs?${query}`, {
+    const response = await fetch(`${Domain}/api/searchjobs?${query}`, {
       method: "GET",
       headers: {
         'Content-Type': "application/json"

@@ -4,13 +4,14 @@ import { BsCurrencyDollar } from 'react-icons/bs'
 import { CiClock2 } from 'react-icons/ci'
 import { IoCalendar, IoLocationOutline } from 'react-icons/io5'
 import { formatTimeAgo } from './formatTimeAgo'
+import TipTapViewer from '../RichText/TipTapViewer'
 
 interface JobsCardsProps {
   jobs: Jobs[]
 }
 const JobsCards: React.FC<JobsCardsProps> = ({ jobs }) => {
   return (
-    <div className="flex flex-col items-center  gap-3 max-h-screen h-screen">
+    <div className="flex flex-col items-center  gap-3 ">
       {jobs.length > 0 ? (
         jobs.map((item) => (
           <div
@@ -43,11 +44,8 @@ const JobsCards: React.FC<JobsCardsProps> = ({ jobs }) => {
                 </p>
               </div>
               
-              <p
-                className="text-gray-600 dark:text-gray-300"
-                dangerouslySetInnerHTML={{ __html: item.description }}
-              />
-
+              <TipTapViewer content={item.description} />
+              
             </div>
           </div>
         ))

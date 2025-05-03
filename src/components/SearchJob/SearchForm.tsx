@@ -34,7 +34,7 @@ const SearchForm =  () => {
             }).toString();
             
             router.push(`/search/search-job?${query}`);
-        }catch(error :any){
+        }catch(error :unknown){
             throw new Error("Failed to fetch jobs");
         }finally{
             setLoading(false)
