@@ -7,13 +7,13 @@ Career Connect is a modern front-end application that enables users to browse, c
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](./public/screenshots/Home Page.PNG)
+![Home Page](./public/screenshots/HomePage.png)
 
 ### Dark Mode
-![Dark Mode](./public/screenshots/Dark mode.PNG)
+![Dark Mode](./public/screenshots/Darkmode.png)
 
 ### Job Details Page
-![Job create](./public/screenshots/Create Job.PNG)
+![Job create](./public/screenshots/CreateJob.png)
 
 ---
 
